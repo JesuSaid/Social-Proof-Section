@@ -15,6 +15,7 @@ body {
     margin: 0;
     font-family: var(--font);
     font-size: 0.9375rem;
+    background-color: var(--color-background);
 }
 
 .sr-only {
@@ -34,6 +35,9 @@ main {
     align-items: center;
     flex-direction: column;
     gap: 2rem;
+    background-image: url(./assets/images/bg-pattern-top-mobile.svg), url(./assets/images/bg-pattern-bottom-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
 }
 
 .site-header {
@@ -98,6 +102,7 @@ main {
 .customer-testimonials {
     width: 100%;
     padding-inline: 1.5rem;
+    padding-block-end: 4rem;
 }
 
 .customer-testimonials__list {
