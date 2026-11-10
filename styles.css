@@ -1,7 +1,7 @@
 :root {
     --color-background: hsl(0, 0%, 100%);
     --color-back-customer-ratings: hsl(300, 24%, 96%);
-    --color-back-customer-testimonials: hsl(300, 43%, 22%);
+    --color-primary: hsl(300, 43%, 22%);
     --color-header-text: hsl(303, 10%, 53%);
     --color-status: hsl(333, 80%, 67%);
     --font: League Spartan, sans-serif;
@@ -11,14 +11,10 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
-}
-
 body {
     margin: 0;
     font-family: var(--font);
-    font-size: 1.5rem;
+    font-size: 0.9375rem;
 }
 
 .sr-only {
@@ -31,4 +27,32 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.site-header {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.site-header > h1 {
+    margin: 0;
+    font-size: 2.625rem;
+    font-weight: 700;
+    line-height: 2.3625rem;
+    color: var(--color-primary);
+}
+
+.site-header > p {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.4875rem;
+    color: var(--color-header-text);
+    margin-block-start: 1rem;
 }
