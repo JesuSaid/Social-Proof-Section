@@ -1,104 +1,109 @@
-# Frontend Mentor - Social proof section
+# Sección de prueba social
 
-![Design preview for the Social proof section coding challenge](./design/desktop-preview.jpg)
+[English version](./README-en.md)
 
-## Welcome! 👋
+Solución al reto [Social proof section de Frontend Mentor](https://www.frontendmentor.io/challenges/social-proof-section-6e0qTv_bA). El objetivo fue reproducir el diseño con HTML semántico y CSS responsive, comenzando por la versión móvil y adaptando después la composición para escritorio.
 
-Thanks for checking out this front-end coding challenge.
+## Capturas
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+### Escritorio
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+![Resultado de escritorio de la sección de prueba social](./assets/images/Desktop.png)
 
-## The challenge
+### Móvil
 
-Your challenge is to build out this social proof section and get it looking as close to the design as possible.
+![Resultado móvil de la sección de prueba social](./assets/images/Mobile.png)
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+## Enlaces
 
-Your users should be able to:
+- [Sitio publicado](https://jesusaid.github.io/Social-Proof-Section/)
+- [Repositorio](https://github.com/JesuSaid/Social-Proof-Section)
+- [Reto de Frontend Mentor](https://www.frontendmentor.io/challenges/social-proof-section-6e0qTv_bA)
 
-- View the optimal layout for the section depending on their device's screen size
+## El reto
 
-### Want some support on the challenge? 
+Los usuarios deben poder ver una distribución adecuada del contenido de acuerdo con el tamaño de su pantalla. La interfaz incluye una introducción, tres valoraciones de cinco estrellas y tres testimonios de compradores verificados.
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+## Tecnologías y técnicas
 
-## Where to find everything
+- HTML5 semántico.
+- CSS con propiedades personalizadas.
+- Flujo de trabajo mobile-first.
+- Flexbox para listas, valoraciones y distribución de tarjetas.
+- CSS Grid para la estructura interna de los testimonios y el layout desktop.
+- Propiedades lógicas como `inline-size`, `padding-inline`, `margin-block-start` y `min-block-size`.
+- Fuente local League Spartan en pesos 400, 500 y 700.
+- Imágenes de fondo múltiples para los patrones decorativos.
+- Media query con `min-width` para la mejora progresiva de escritorio.
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+## Proceso de desarrollo
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+Primero se organizó el contenido con un único `h1`, secciones identificadas mediante `h2`, listas para las valoraciones y testimonios, y elementos `blockquote` para las citas. Los títulos de sección se conservaron para tecnologías de asistencia mediante una clase `sr-only`.
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+Después se creó la base visual con tokens de color y tipografía, `box-sizing: border-box` y las declaraciones locales de League Spartan. La versión móvil se construyó por bloques: introducción, valoraciones, testimonios y fondos decorativos.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+Para escritorio, `main` cambia de Flexbox a Grid. La introducción y las valoraciones ocupan la primera fila, mientras que los testimonios abarcan todas las columnas en la segunda. Las valoraciones usan anchos y desplazamientos proporcionales, y los testimonios se distribuyen en una fila con un escalonado vertical.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+## Aprendizajes
 
-## Using AI coding assistants
+### HTML semántico y accesibilidad
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+- Una `section` debe tener un encabezado que describa su contenido, aunque el diseño no lo muestre visualmente.
+- `blockquote` comunica mejor el significado de un testimonio que un párrafo común.
+- Las estrellas y los retratos usan `alt=""` porque la información necesaria ya está expresada por el texto cercano.
+- Los encabezados ocultos visualmente deben permanecer disponibles para lectores de pantalla.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+### Diseño responsive
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+- `width: 100%` depende del tamaño del elemento padre; por eso fue necesario definir primero el ancho de las secciones.
+- Un `min-width` puede provocar scroll horizontal en pantallas estrechas. Los contenedores fluidos con padding lateral permiten que las tarjetas se reduzcan con seguridad.
+- `min-block-size` permite respetar una altura mínima sin impedir que el contenido crezca con zoom o textos más largos.
+- Los breakpoints se eligieron según el espacio requerido por el contenido, manteniendo 768px con el layout móvil y activando el layout desktop a partir de `64rem`.
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+### Flexbox y Grid
 
-## Building your project
+- `align-content` controla la distribución de las filas completas de Grid. Se utilizó para evitar que las filas automáticas se estiraran dentro de `100vh`.
+- `align-items: stretch` hacía que los testimonios escalonados terminaran a la misma altura. `align-items: flex-start` permite que cada tarjeta conserve su altura.
+- `flex: 1 1 0` reparte equitativamente el espacio entre las tarjetas de testimonios.
+- Las valoraciones ocupan el 80% de su lista y usan desplazamientos de 0%, 10% y 20%, de modo que la última termina dentro del 100% disponible.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### Organización de CSS
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- Las clases distinguen entre colecciones y componentes individuales, por ejemplo `customer-testimonials__list` y `card-testimonial`.
+- Los estilos se mantienen limitados al componente para evitar efectos globales inesperados.
+- Los fondos decorativos superior e inferior se declararon como capas CSS independientes y se intercambian por sus versiones desktop en la media query.
 
-## Deploying your project
+## Pruebas realizadas
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+La interfaz se revisó visualmente en los siguientes anchos:
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- 320px
+- 375px
+- 425px
+- 768px
+- 1024px
+- 1280px
+- 1440px
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+También se comprobó que no hubiera scroll horizontal durante el desarrollo y se ejecutó `git diff --check` antes de los commits.
 
-## Create a custom `README.md`
+## Desarrollo futuro
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+- Validar el HTML y el CSS con herramientas automáticas.
+- Probar el contenido con zoom al 200% y 400%.
+- Realizar una revisión con lector de pantalla y árbol de accesibilidad.
+- Seguir practicando layouts fluidos y breakpoints definidos por el contenido.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Colaboración con IA
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+Se utilizó ChatGPT/Codex como mentor durante el proyecto. La colaboración se centró en revisar la semántica, explicar Flexbox y Grid, detectar posibles desbordamientos, razonar sobre accesibilidad y proponer hitos de Git. La implementación se desarrolló de forma incremental, probando y corrigiendo cada sección antes de continuar.
 
-## Submitting your solution
+## Autor
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+- GitHub: [@JesuSaid](https://github.com/JesuSaid)
+- Frontend Mentor: [@JesuSaid](https://www.frontendmentor.io/profile/JesuSaid)
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+## Reconocimientos
 
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- [Frontend Mentor](https://www.frontendmentor.io/) por proporcionar el reto, los recursos y las referencias visuales.
+- [MDN Web Docs](https://developer.mozilla.org/) y [W3C Web Accessibility Initiative](https://www.w3.org/WAI/) como referencias de HTML, CSS y accesibilidad.

@@ -182,7 +182,7 @@ main {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         inline-size: 100%;
-        max-inline-size: 73.375rem;     
+        max-inline-size: 76.25rem;
         padding-inline: 2rem;
         margin: auto;
         min-block-size: 100vh;
@@ -216,7 +216,6 @@ main {
     .customer-ratings__list {
         margin-inline: 0;
         max-inline-size: none;
-        
     }
 
     .rating {
